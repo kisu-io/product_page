@@ -1,0 +1,111 @@
+:root {
+  --white: #fff;
+  --black: #111;
+  --primary: #9d9091;
+}
+* *::before *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var (--pink);
+  background-color: var(--white);
+}
+.b-circle {
+  height: 500px;
+  width: 500px;
+  border-radius: 50%;
+  background-color: pink;
+  position: relative;
+}
+
+img {
+  position: absolute;
+  bottom: 50px;
+  right: 0px;
+  border-radius: 50%;
+  max-width: 500px;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding-top: 100px;
+}
+
+.content-product {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 64px;
+  padding-right: 64px;
+}
+
+.left-side {
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header1 {
+  color: red;
+  padding-bottom: 20px;
+  font-weight: 400;
+  font-size: 30px;
+}
+
+.header2 {
+  padding-bottom: 20px;
+  color: pink;
+  font-size: 50px;
+}
+
+.text {
+  padding-bottom: 30px;
+}
+
+.bottom-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+table {
+  border-collapse: separate;
+  border: solid black 1px;
+  border-spacing: 0;
+  border-radius: 6px;
+}
+
+table tr th,
+table tr td {
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+  padding: 5px;
+}
+table tr th:first-child,
+table tr td:first-child {
+  border-left: 1px solid #bbb;
+}
+table tr th {
+  background: #eee;
+  border-top: 1px solid #bbb;
+  text-align: left;
+}
+
+tr .first-column {
+  background-color: plum;
+}
+
+.nutri {
+  padding-bottom: 30px;
+}
