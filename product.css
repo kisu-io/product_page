@@ -245,3 +245,6 @@ input#js-quantity {
   border: 1px solid transparent;
   text-align:center;
 }
+.button__quantity span {
+  cursor: pointer;
+}
