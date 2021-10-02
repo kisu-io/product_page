@@ -240,3 +240,8 @@ color: #71be34;
   top: 16px ;
   right: 16px;
 }
+input#js-quantity {
+  outline: none;
+  border: 1px solid transparent;
+  text-align:center;
+}
