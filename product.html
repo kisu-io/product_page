@@ -6,10 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="product.css" />
     <title>The JUICEWRLD. Inc - Freshly pressed juice for you partner</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
+
   <body>
-    <nav></nav>
-    <section id="#product-page">
+    <nav>
+      <div class="nav-container">
+        <div class="nav-link">
+          <a href="#" class="nav-left">Home</a>
+          <a href="#" class="nav-left">Our Products</a>
+        </div>
+        <img src="./img/juice_logo.png" alt="logo" width="200px" />
+        <div class="nav-link">
+          <a href="#" class="nav-right">Our Story</a>
+          <a href="#" class="nav-right">Contact</a>
+        </div>
+      </div>
+    </nav>
+    <section>
       <div class="container">
         <div class="content-product">
           <div class="left-side">
@@ -31,14 +51,14 @@
             <div class="bottom-row">
               <div class="contents">
                 <h3>Contents:</h3>
-                <div class="contents row1">
-                  <img src="" alt="" />
-                  <img src="" alt="" />
-                </div>
-                <div class="content row2">
-                  <img src="" alt="" />
-                  <img src="" alt="" />
-                </div>
+                <button class="content__btn">
+                  medium
+                  <p class="mes">300ml</p>
+                </button>
+                <button class="content__btn">
+                  large
+                  <p class="mes">450ml</p>
+                </button>
               </div>
               <div class="nutri">
                 <table>
@@ -62,13 +82,27 @@
                 </table>
               </div>
             </div>
-            <button class="btn">Order Now</button>
+            <div class="button__btn-order">
+              <div class="button__quantity">
+                <span id="js-minus">-</span>
+                <input
+                  type="number"
+                  id="js-quantity"
+                  value="0"
+                  min="0"
+                  max="99"
+                />
+                <span id="js-plus">+</span>
+              </div>
+              <button onclick="showSuccessToast();" class="btn btn--success">
+                Order Now
+              </button>
+            </div>
           </div>
         </div>
       </div>
+      <div id="toast"></div>
     </section>
-    <section id="recomendation"></section>
-
     <script src="./product.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
@@ -80,5 +114,73 @@
       integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
       crossorigin="anonymous"
     ></script>
+    <script>
+      const minus = document.getElementById("js-minus");
+      const quantity = document.getElementById("js-quantity");
+      const plus = document.getElementById("js-plus");
+      function minusA(e) {
+        quantity.value--;
+      }
+      minusA();
+      function plusB(e) {
+        quantity.value++;
+      }
+
+      minus.addEventListener("click", minusA);
+      plus.addEventListener("click", plusB);
+      // toast message
+      function toast({
+        title = "",
+        message = "",
+        type = "success",
+        duration = 3000,
+      }) {
+        const main = document.getElementById("toast");
+        if (main) {
+          const toast = document.createElement("div");
+          setTimeout(function () {
+            main.removeChild(toast);
+          }, duration + 1000);
+
+          toast.onclick = function (e) {
+            if (e.target.closest(".toast__close")) {
+              main.removeChild(toast);
+            }
+          };
+          const icons = {
+            success: "fas fa-check-circle",
+            info: "fas fa-info-circle",
+            warning: "fas fa-exclamation-circle",
+            error: "fas fa-exclamation-circle",
+          };
+          const icon = icons[type];
+          const deplay = (duration / 1000).toFixed(2);
+          toast.classList.add("toast", `toast--${type}`);
+          toast.style.animation = `slideInLeft ease-in-out 0.5s,  FadeIn linear 1s ${deplay}s forwards`;
+          toast.innerHTML = `
+          <div class="toast__icon">
+            <i class="${icon}"></i>
+          </div>
+          <div class="toast__body">
+            <h3 class="toast__title">${title}</h3>
+            <p class="toast__msg">${message}</p>
+          </div>
+          <div class="toast__close">
+            <i class="fas fa-times"></i> 
+          </div>
+        `;
+          main.appendChild(toast);
+        }
+      }
+
+      function showSuccessToast() {
+        toast({
+          title: "Success",
+          message: "Thêm vào giỏ hàng thành công(amazing good job e)",
+          type: "success",
+          duration: 1000,
+        });
+      }
+    </script>
   </body>
 </html>
