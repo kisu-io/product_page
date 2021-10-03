@@ -42,10 +42,10 @@ nav {
   align-items: center;
 }
 nav {
+  background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
   position: absolute;
   width: 100%;
   height: 80px;
-  background-color: blue;
   z-index: 1;
   top: 0;
   left: 0;
@@ -68,16 +68,16 @@ a {
   font-weight: 400;
 }
 a:hover {
-  -webkit-mask-image: linear-gradient(
+  mask-image: linear-gradient(
     -75deg,
     rgba(0, 0, 0, 0.6) 30%,
     #000 50%,
     rgba(0, 0, 0, 0.6) 70%
   );
-  -webkit-mask-size: 200%;
+  mask-size: 200%;
   animation: shine 2s infinite;
 }
-@-webkit-keyframes shine {
+@keyframes shine {
   from {
     -webkit-mask-position: 150%;
   }
@@ -100,32 +100,39 @@ a:hover {
   border-radius: 50%;
   background-color: pink;
   position: relative;
+  /* background-image: radial-gradient(#ff8a00, #e52e71); */
+  box-shadow: 0 10px 15px 5px grey;
+  display: block;
+  margin: auto;
+  background: -webkit-radial-gradient(100px 100px, circle, #ff8a00, #e52e71);
 }
 
-img {
-  position: absolute;
-  bottom: 50px;
-  right: 0px;
+.b-circle img {
   border-radius: 50%;
   max-width: 500px;
+  padding-top: 50px;
+  position: absolute;
+  transform: rotate(20deg);
+  left: 10px;
+  top: 10px;
 }
 
 .container {
-  max-width: 1140px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding-top: 100px;
+  padding-top: 200px;
 }
 
 .content-product {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 64px;
-  padding-right: 64px;
+  padding-left: 60px;
+  padding-right: 60px;
 }
 
 .left-side {
-  flex-basis: 50%;
+  flex-basis: 40%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -133,7 +140,6 @@ img {
 
 .header1 {
   color: red;
-  padding-bottom: 20px;
   font-weight: 400;
   font-size: 30px;
 }
@@ -158,6 +164,7 @@ table {
   border: solid black 1px;
   border-spacing: 0;
   border-radius: 6px;
+  color: white;
 }
 
 table tr th,
@@ -165,6 +172,7 @@ table tr td {
   border-right: 1px solid #000;
   border-bottom: 1px solid #000;
   padding: 5px;
+  color: black;
 }
 table tr th:first-child,
 table tr td:first-child {
@@ -177,7 +185,8 @@ table tr th {
 }
 
 tr .first-column {
-  background-color: plum;
+  background: -webkit-radial-gradient(10px 10px, circle, #ff8a00, #e52e71);
+  color: white;
 }
 
 .nutri {
@@ -196,7 +205,7 @@ button.content__btn {
   background: #fff;
 }
 button.content__btn:active {
-  background-color: rgb(173, 49, 132);
+  background: -webkit-radial-gradient(10px 10px, circle, #ff8a00, #e52e71);
   color: #fff;
 }
 .content__btn .mes {
@@ -214,15 +223,20 @@ button.content__btn:active {
   padding: 5px -21px 5px 5px;
   margin-right: 60px;
   padding: 8px 0 8px 15px;
+  border-radius: 10px;
 }
 button.btn {
   padding: 10px 20px;
   color: #fff;
-  background: pink;
+  background: -webkit-radial-gradient(10px 10px, circle, #ff8a00, #e52e71);
   outline: none;
   border: 1px solid #ccc;
   cursor: pointer;
-  border-radius: 3px;
+  border-radius: 15px;
+}
+
+.btn:active {
+  background: -webkit-radial-gradient(10px 10px, circle, #a85a00, #961e4a);
 }
 /* toast message */
 .toast {
